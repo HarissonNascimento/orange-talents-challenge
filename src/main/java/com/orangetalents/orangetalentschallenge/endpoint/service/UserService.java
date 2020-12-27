@@ -13,4 +13,12 @@ public class UserService {
     public User createNewUser(User user){
         return userRepository.save(user);
     }
+
+    public Boolean existsUserByEmail(String email){
+        return userRepository.existsUserByEmail(email);
+    }
+
+    public Boolean existsUserByCpf(String cpf){
+        return userRepository.existsUserByCpf(cpf);
+    }
 }
