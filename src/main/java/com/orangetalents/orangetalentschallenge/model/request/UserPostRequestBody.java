@@ -18,6 +18,7 @@ public class UserPostRequestBody {
     @Pattern(message = "Invalid CPF",regexp = "[\\d]{11}")
     @FieldUnique(message = "CPF already taken")
     private String cpf;
-    @NotEmpty(message = "The field 'birthday' cannot be empty/null")
+    @NotNull(message = "The field 'birthday' cannot be empty/null")
+    @Past(message = "It must be a past date ")
     private LocalDate birthday;
 }
