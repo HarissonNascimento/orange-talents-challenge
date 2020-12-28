@@ -1,5 +1,6 @@
 version: '2.4'
-
+x-database-variable: &database-variables
+  SPRING_DATASOURCE_URL: jdbc:mysql://db_orange-talents:3306/orange-talents?createDatabaseIfNotExist=true&autoReconnect=true
 services:
   db:
     image: mysql
@@ -14,5 +15,15 @@ services:
     volumes:
     - orange_talents:/var/lib/mysql
 
+  orange-talents:
+    container_name: orange-talents
+    image: harissonnascimento/orange-talents
+    ports:
+    - "8080:8080"
+    environment:
+      <<: *database-variables
+    depends_on:
+      - db
+    restart: always
 volumes:
   orange_talents:
