@@ -11,6 +11,11 @@ import java.time.LocalDate;
 @Data
 @Builder
 public class UserPostRequestBody {
+    @NotEmpty(message = "The field 'name' cannot be empty/null")
+    @Schema(description = "This field must be filled with one name",
+            example = "Harisson",
+            required = true)
+    private String name;
     @NotEmpty(message = "The field 'email' cannot be empty/null")
     @Email
     @FieldUnique(message = "Email already registered")
