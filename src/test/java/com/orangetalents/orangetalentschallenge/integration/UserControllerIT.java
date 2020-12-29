@@ -82,7 +82,7 @@ class UserControllerIT {
     void createNewUser_ReturnsExceptionDetailsAndStatusCode400_IfGivenInvalidCPF(){
         UserPostRequestBody invalidUserPostRequestBody = UserPostRequestBodyCreator.createValidUserPostRequestBody();
 
-        invalidUserPostRequestBody.setCpf("invalidcpf");
+        invalidUserPostRequestBody.setCpf("invalidcpf_");
 
         ResponseEntity<ExceptionDetails> exchange = testRestTemplate.exchange(CREATE_NEW_USER_URL, HttpMethod.POST,
                 new HttpEntity<>(invalidUserPostRequestBody), ExceptionDetails.class);
