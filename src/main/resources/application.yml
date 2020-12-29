@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: orange-talents
+  datasource:
+    url: jdbc:mysql://localhost:3306/orange-talents?createDatabaseIfNotExist=true
+    username: orange
+    password: harisson
+  jpa:
+    hibernate:
+      ddl-auto: update
